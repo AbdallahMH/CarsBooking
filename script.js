@@ -152,6 +152,7 @@ var myList = [
 
 var widget = document.querySelector(".js-widget");
 
+//compute distance from lat and long
 function distance(lat2, lon2) {
     var lat1 = 21.570491;
     var lon1 = 39.149440;
@@ -176,6 +177,7 @@ function distance(lat2, lon2) {
     }
 }
 
+//build the car list
 function buildList(carNum) {
     if (document.querySelector(".button")) {
         document.querySelector(".button").outerHTML = "";
@@ -188,7 +190,7 @@ function buildList(carNum) {
 
 
         widgetContent +=
-            '<a class="car-link" href="CarPage.html">' +
+            '<a class="car-link" href="CarPage.html" >' +
             '<div class="car-card">' +
             "<h2>" +
             myList[i].CarName +
@@ -222,10 +224,19 @@ function buildList(carNum) {
             distance(myList[i].Latitude, myList[i].Longitude)+
             " KM " +
             "</li>" +
+            "</ul>" +
+            "<ul>" +
             "<li>" +
             '<i class="fas fa-calendar-alt">\xa0</i>'+
             "Avaliable From "+
             new Date(myList[i]["Available From"]).getDate() + "/"+ new Date(myList[i]["Available From"]).getMonth() + "/" +new Date(myList[i]["Available From"]).getFullYear()+
+            "</li>" +
+            "</ul>" +
+            "<ul>" +
+            "<li>" +
+            '<i class="fas fa-calendar-alt">\xa0</i>'+
+            "Avaliable Until "+
+            new Date(myList[i]["Available Until "]).getDate() + "/"+ new Date(myList[i]["Available Until "]).getMonth() + "/" +new Date(myList[i]["Available Until "]).getFullYear()+
             "</li>" +
 
             "</ul>" +
@@ -233,9 +244,10 @@ function buildList(carNum) {
             "</a>";
     }
 
-    widget.insertAdjacentHTML("beforeend", widgetContent);
-}
 
+    widget.insertAdjacentHTML("beforeend", widgetContent);
+
+}
 
 
 buildList(9);

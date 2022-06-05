@@ -19,10 +19,11 @@
 
 <div class="simple-slider">
     <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-            <img id="car-image" src="https://www.drivearabia.com/app/uploads/2022/05/ferrari-296-gts-1.jpg" style="width: 100%"> </img>
-        </div>
+        <div id="swiper-wrapper" class="swiper-wrapper">
+            <div id="sliderImage" class="swiper-slide">
+            <img id="car-image" src="https://www.drivearabia.com/app/uploads/2022/05/ferrari-296-gts-1.jpg" style="width: 100%">
+            </div>
+
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -39,11 +40,11 @@
         <div class="col">
             <div class="d-flex">
 
-                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon"><svg class="bi bi-tools" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+                <div class="bs-icon-sm bs-icon-rounded bs-icon-semi-white text-primary d-flex flex-shrink-0 d-inline-block mb-3 bs-icon"><svg class="bi bi-tools" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.356 3.356a1 1 0 0 0 1.414 0l1.586-1.586a1 1 0 0 0 0-1.414l-3.356-3.356a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0zm9.646 10.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708zM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11z"></path>
                 </svg></div>
                 <div class="px-3">
-                    <h4 class="text-white">Make</h4>
+                    <h4 class="text-white" align="left" >Make</h4>
                     <p id="make">Erat netus est hendrerit, nullam et quis ad cras porttitor iaculis. Bibendum vulputate cras aenean.</p>
                 </div>
             </div>
@@ -124,14 +125,26 @@
 
 <script>
     // document.getElementById('slide-image').innerHTML = myList[0].Images[0];
-    document.getElementById('car-image').src = myList[0].Images[0];
+
+
+    var numOfImages = myList[0].Images.length;
+    for (let i = 0; i < numOfImages; i++) {
+        document.getElementById('swiper-wrapper').innerHTML +=
+        '<div id="sliderImage" class="swiper-slide">'+
+            '<img id="car-image" src="'+ myList[0].Images[i] +
+            '"style="width: 100%">'+ '</div>' +
+            '</div>';
+    }
+
+    // document.getElementById('car-image').src = myList[0].Images[0];
     document.getElementById('car-name').innerHTML = myList[0].CarName;
     document.getElementById('make').innerHTML = myList[0].Make;
     document.getElementById('model').innerHTML = myList[0].Model;
     document.getElementById('rental-price').innerHTML = myList[0].RentalPrice + " SAR";
     document.getElementById('kilometers-traveled').innerHTML = myList[0].KilometersTraveled;
     document.getElementById('location').innerHTML = distance(myList[0].Latitude, myList[0].Longitude) + " KM away from your location";
-    document.getElementById('availability').innerHTML = "Available From: " + new Date(myList[0]["Available From"]) + "\n\nAvailable Until: " + new Date(myList[0]["Available Until "]);
+    document.getElementById('availability').innerHTML = "Available From: " + new Date(myList[0]["Available From"]).getDate() + "/"+ new Date(myList[0]["Available From"]).getMonth() + "/" +new Date(myList[0]["Available From"]).getFullYear()+
+        "      |      "+"Available Until: " + new Date(myList[0]["Available Until "]).getDate() + "/"+ new Date(myList[0]["Available Until "]).getMonth() + "/" +new Date(myList[0]["Available Until "]).getFullYear();
 
 </script>
 

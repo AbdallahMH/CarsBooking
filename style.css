@@ -52,9 +52,9 @@ h1 {
 }
 
 .car-card ul {
-    align-self: center;
+    align-self: auto;
     color: #bababa;
-    display: flex;
+    display: inline-grid;
     font-family: roboto, sans-serif;
     font-size: 20px;
     font-style: normal;
