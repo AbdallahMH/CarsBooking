@@ -1,7 +1,7 @@
-* {
-    margin: auto;
-    padding: 0px;
-}
+/** {*/
+/*    margin: auto;*/
+/*    padding: 0;*/
+/*}*/
 
 body {
     background-color: #fcfcfc;
@@ -21,10 +21,10 @@ h1 {
 .card-container {
     box-sizing: border-box;
     display: grid;
-    grid-column-gap: 10px;
+    grid-column-gap: 50px;
     grid-row-gap: 50px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: initial;
     padding: 1em 0;
 }
 
@@ -34,7 +34,7 @@ h1 {
     box-sizing: content-box;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 0fr 0fr 0fr;
+    grid-template-rows: auto;
     height: auto;
     padding: 10px 15px;
     transition: 0.5s ease;
@@ -52,6 +52,8 @@ h1 {
 }
 
 .car-card ul {
+
+    text-align: left;
     align-self: auto;
     color: #bababa;
     display: inline-grid;
@@ -62,14 +64,25 @@ h1 {
     justify-content: space-evenly;
     list-style-type: none;
     width: 100%;
+    padding-inline-start: 0;
+
 }
 
 .car-card li {
-    text-align: center;
+    text-align: left;
+    list-style-type: none;
+    color: #bababa;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+    justify-content: space-evenly;
+    font-family: roboto, sans-serif;
+    padding-inline-start: 7px;
 }
 
 li:nth-child(2) {
-    margin: auto 15px;
+    margin: 0;
 }
 
 .car-card h2 {
@@ -156,16 +169,16 @@ li:nth-child(2) {
         text-align: center;
     }
 
-    .car-card ul {
-        flex-direction: column;
-    }
+    /*.car-card ul {*/
+    /*    flex-direction: column;*/
+    /*}*/
 
-    .car-card li {
-        margin-bottom: 5px;
-    }
+    /*.car-card li {*/
+    /*    margin-bottom: 5px;*/
+    /*}*/
 
-    li:nth-child(2) {
-        margin: 0 0 5px;
-    }
+    /*li:nth-child(2) {*/
+    /*    margin: 0 0 5px;*/
+    /*}*/
 }
 

@@ -198,7 +198,6 @@ function buildList(carNum) {
             '<img src="' +
             myList[i].Images[0] +
             '">' +
-            "<ul>" +
             "<li>" +
            '<i class="fas fa-tools">\xa0</i>'+
             myList[i].Make +
@@ -213,7 +212,6 @@ function buildList(carNum) {
             "SAR" +
             "</li>" +
             "</ul>" +
-            "<ul>" +
             "<li>" +
             '<i class="fa fa-road">\xa0</i>'+
             myList[i].KilometersTraveled +
@@ -224,22 +222,16 @@ function buildList(carNum) {
             distance(myList[i].Latitude, myList[i].Longitude)+
             " KM " +
             "</li>" +
-            "</ul>" +
-            "<ul>" +
             "<li>" +
             '<i class="fas fa-calendar-alt">\xa0</i>'+
             "Avaliable From "+
             new Date(myList[i]["Available From"]).getDate() + "/"+ new Date(myList[i]["Available From"]).getMonth() + "/" +new Date(myList[i]["Available From"]).getFullYear()+
             "</li>" +
-            "</ul>" +
-            "<ul>" +
             "<li>" +
             '<i class="fas fa-calendar-alt">\xa0</i>'+
             "Avaliable Until "+
             new Date(myList[i]["Available Until "]).getDate() + "/"+ new Date(myList[i]["Available Until "]).getMonth() + "/" +new Date(myList[i]["Available Until "]).getFullYear()+
             "</li>" +
-
-            "</ul>" +
             "</div>" +
             "</a>";
     }
