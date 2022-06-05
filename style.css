@@ -1,0 +1,171 @@
+* {
+    margin: auto;
+    padding: 0px;
+}
+
+body {
+    background-color: #fcfcfc;
+    margin: auto;
+    max-width: 1200px;
+    padding: 1em;
+}
+
+h1 {
+    color: #bababa;
+    font-family: roboto, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.card-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 50px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 1em 0;
+}
+
+.car-card {
+    background-color: #fff;
+    box-shadow: 0px 4px 8px #d2d2d2;
+    box-sizing: content-box;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 0fr 0fr 0fr;
+    height: auto;
+    padding: 10px 15px;
+    transition: 0.5s ease;
+    width: fit-content;
+}
+
+.car-card img {
+    max-width: 380px;
+    object-fit: cover;
+    place-self: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    transition: 0.5s ease;
+    width: 100%;
+}
+
+.car-card ul {
+    align-self: center;
+    color: #bababa;
+    display: flex;
+    font-family: roboto, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    justify-content: space-evenly;
+    list-style-type: none;
+    width: 100%;
+}
+
+.car-card li {
+    text-align: center;
+}
+
+li:nth-child(2) {
+    margin: auto 15px;
+}
+
+.car-card h2 {
+    align-self: center;
+    color: #000;
+    font-family: roboto, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+/* hover effect */
+.car-link {
+    text-decoration: none;
+    transition: 0.5s ease;
+}
+
+.car-link:hover .car-card {
+    box-shadow: 0px 6px 8px #d9d9d9;
+    transition: 0.5s ease;
+}
+
+.car-link:hover img {
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
+
+/* button */
+.button {
+    align-items: center;
+    background-color: #fff;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0px 2px 4px #d9d9d9;
+    color: #bababa;
+    display: flex;
+    font-family: roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 18px;
+    margin: 3em auto 3em;
+    max-width: 200px;
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.button:hover {
+    box-shadow: 0px 4px 4px #d9d9d9;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #aaaaaa;
+}
+
+.button:focus {
+    outline: 0;
+}
+
+@media (max-width: 700px) {
+    .card-container {
+        grid-column-gap: 50px;
+        grid-row-gap: 50px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .car-card h2 {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .car-card ul {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .car-card ul {
+        flex-direction: column;
+    }
+
+    .car-card li {
+        margin-bottom: 5px;
+    }
+
+    li:nth-child(2) {
+        margin: 0 0 5px;
+    }
+}
+

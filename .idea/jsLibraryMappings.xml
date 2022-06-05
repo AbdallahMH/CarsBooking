@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{Swiper, a076d05399, daterangepicker, gwb0rvj, jquery, moment}" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

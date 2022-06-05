@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Car booking</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+</head>
+
+<body>
+<a class="btn" style="background-color: #d2d2d2; margin-bottom: 10px; width: 100px" type="button" href="CarPage.html">Back</a>
+<div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+    <div class="row mb-5">
+        <div class="col">
+            <h2 id="car-name">Car Name</h2>
+        </div>
+    </div>
+    <div class="row gy-4 w-100" style="max-width: 800px;">
+        <div class="col-12">
+            <div class="card"><img id="car-image" class="card-img w-100 d-block" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png">
+                <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="position-relative py-4 py-xl-5">
+    <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                <div class="card mb-5">
+                    <div class="card-body p-sm-5">
+                        <h2 class="text-center mb-4">Booking Checkout</h2>
+                        <form method="post">
+                            <div class="mb-3"><input class="form-control" type="text" id="name-2" onkeyup="success()" name="name" placeholder="Name"></div>
+                            <div class="mb-3"><input class="form-control" type="email" id="email-2" onkeyup="success()" name="email" placeholder="Email"></div>
+                            <input class="form-control" type="text" name="datetimes"><small class="form-text">Choose the start and the end date of booking</small>
+
+                            <div class="mb-3"></div>
+                            <div><button class="btn btn-primary d-block w-100" onclick="alert('Car Booked Successfully')" type="submit" id="confirmBooking" disabled>Confirm Booking</button></div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+<script src="assets/js/Simple-Slider.js"></script>
+<script src="script.js"></script>
+
+<script>
+    //grey out not available dates
+    $(function() {
+        var availableFrom = new Date(myList[0]["Available From"]);
+        var availableUntil = new Date(myList[0]["Available Until "]);
+
+        $('input[name="datetimes"]').daterangepicker({
+            "opens": "right",
+            "minDate": availableFrom,
+            "maxDate": availableUntil,
+            "startDate": availableFrom,
+            "endDate": availableUntil,
+            timePicker: true,
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+    });
+</script>
+<script>
+    //disable button if form is empty
+    function success() {
+        if(document.getElementById("name-2").value==="" || document.getElementById("email-2").value==="") {
+            document.getElementById('confirmBooking').disabled = true;
+        } else {
+            document.getElementById('confirmBooking').disabled = false;
+        }
+    }</script>
+<script>
+    document.getElementById('car-name').innerHTML = myList[0].CarName;
+    document.getElementById('car-image').src = myList[0].Images[0];
+</script>
+
+
+</body>
+
+</html>
